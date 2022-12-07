@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.block;
+package me.mrsoulpenguin.cosdt.mixin.block;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;

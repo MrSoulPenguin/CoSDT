@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.entity.mob;
+package me.mrsoulpenguin.cosdt.mixin.entity.mob;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;

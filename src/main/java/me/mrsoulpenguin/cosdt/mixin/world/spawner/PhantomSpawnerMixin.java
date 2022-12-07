@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.world.spawner;
+package me.mrsoulpenguin.cosdt.mixin.world.spawner;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityData;

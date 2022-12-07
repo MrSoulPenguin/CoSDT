@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.entity.player;
+package me.mrsoulpenguin.cosdt.mixin.entity.player;
 
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.EntityType;

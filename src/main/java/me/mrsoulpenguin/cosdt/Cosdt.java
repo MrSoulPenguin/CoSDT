@@ -1,8 +1,8 @@
-package me.mrsoulpenguin.hardercore;
+package me.mrsoulpenguin.cosdt;
 
 import net.fabricmc.api.ModInitializer;
 
-public class Hardercore implements ModInitializer {
+public class Cosdt implements ModInitializer {
     @Override
     public void onInitialize() {
 

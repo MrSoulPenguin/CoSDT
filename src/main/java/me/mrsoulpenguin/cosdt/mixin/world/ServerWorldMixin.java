@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.world;
+package me.mrsoulpenguin.cosdt.mixin.world;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

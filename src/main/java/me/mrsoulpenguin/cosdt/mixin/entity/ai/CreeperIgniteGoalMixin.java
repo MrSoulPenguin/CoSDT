@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.hardercore.mixin.entity.ai;
+package me.mrsoulpenguin.cosdt.mixin.entity.ai;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.CreeperIgniteGoal;
