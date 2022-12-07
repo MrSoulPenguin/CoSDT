@@ -9,5 +9,5 @@ I know, or could be fucked to do, unless it actually causes issues.
 
 Example:
   I know using a mixin to inject into one of the Block#dropStacks() methods isn't 
-  the proper way to modify loot tables. But as I only wanted to change on loot table, 
+  the proper way to modify loot tables. But as I only wanted to change one loot table, 
   I don't care. If I add more modifications to other loot tables, I'll do it properly.
