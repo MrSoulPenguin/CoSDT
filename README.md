@@ -8,7 +8,7 @@ in the correct/most optimal way. So things will be implemented in either the way
 I know, or could be fucked to do.
 
 Example:
-  I know using a block mixin and listening for block breaking isn't the proper
-  way to modify loot tables. But as it's the only loot table I wanted to change,
-  I don't care. If I add more modifications to other loot tables, I'll do it
-  properly.
+  I know using a mixin to inject into one of the Block#dropStacks() method isn't 
+  the proper way to modify loot tables. But as it's the only loot table I wanted 
+  to change, I don't care. If I add more modifications to other loot tables, I'll 
+  do it properly.
