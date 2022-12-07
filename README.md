@@ -1,5 +1,7 @@
 # Hardercore
-A mod that implements my stupid ideas to make Minecraft "harder".
+A mod that I work on when bored, that implements my stupid ideas
+to make Minecraft "harder". Basically an outlet for dumb ideas 
+that I can't put into my other projects.
 
 As I am self taught and this isn't an important project, things might not be done 
 in the correct/most optimal way. So things will be implemented in either the way 
