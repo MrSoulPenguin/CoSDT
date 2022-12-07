@@ -1,4 +1,4 @@
-# Hardercore
+# CoSDT (Compilation of Stupid Difficulty Tweaks)
 A mod that I work on when bored, that implements my stupid ideas
 to make Minecraft "harder". Basically an outlet for dumb ideas 
 that I can't put into my other projects.
