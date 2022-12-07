@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "hardercore",
+  "version": "${version}",
+
+  "name": "Hardercore",
+  "description": "A mod that implements stupid ideas to make Minecraft \"harder\".",
+  "authors": [
+    "MrSoulPenguin"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "me.mrsoulpenguin.hardercore.Hardercore"
+    ]
+  },
+  "mixins": [
+    "hardercore.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}
