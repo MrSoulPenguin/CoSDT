@@ -1,6 +1,8 @@
 package me.mrsoulpenguin.cosdt.mixin.entity.player;
 
 import com.mojang.datafixers.util.Either;
+import me.mrsoulpenguin.cosdt.challenge.AbstractChallenge;
+import me.mrsoulpenguin.cosdt.challenge.ChallengeHolder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,8 +21,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity {
+public abstract class PlayerEntityMixin extends LivingEntity implements ChallengeHolder {
+
+    private final Set<AbstractChallenge> activeChallenges = new HashSet<>();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -75,6 +82,21 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             this.sendMessage(Text.of("The voices keep you awake tonight"), true);
             cir.setReturnValue(Either.left(PlayerEntity.SleepFailureReason.OTHER_PROBLEM));
         }
+    }
+
+    @Override
+    public void addChallenge(AbstractChallenge challenge) {
+        this.activeChallenges.add(challenge);
+    }
+
+    @Override
+    public void removeChallenge(AbstractChallenge challenge) {
+        this.activeChallenges.remove(challenge);
+    }
+
+    @Override
+    public Set<AbstractChallenge> getActiveChallenges() {
+        return this.activeChallenges;
     }
 
 }
