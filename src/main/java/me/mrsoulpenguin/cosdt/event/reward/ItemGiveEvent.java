@@ -17,8 +17,12 @@ public class ItemGiveEvent implements Event {
 
     @Override
     public ActionResult execute(PlayerEntity recipient) {
+        //Have to save these as the itemstack might not exist ones given to the player due to stacking.
+        Text itemName = this.itemStack.getName();
+        int itemAmount = this.itemStack.getCount();
+
         recipient.getInventory().offer(this.itemStack, true);
-        recipient.sendMessage(((MutableText) Text.of("Obtained ")).append(this.itemStack.getName()).append(Text.of(" x" + this.itemStack.getCount())));
+        recipient.sendMessage(((MutableText) Text.of("Obtained ")).append(itemName).append(Text.of(" x" + itemAmount)));
         return ActionResult.SUCCESS;
     }
 }
