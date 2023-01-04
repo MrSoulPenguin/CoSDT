@@ -1,5 +1,6 @@
 package me.mrsoulpenguin.cosdt;
 
+import me.mrsoulpenguin.cosdt.listener.MessageSendListener;
 import me.mrsoulpenguin.cosdt.listener.PickupItemListener;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ public class Cosdt implements ModInitializer {
 
     private void registerListeners() {
         new PickupItemListener();
+        new MessageSendListener();
     }
 
 }

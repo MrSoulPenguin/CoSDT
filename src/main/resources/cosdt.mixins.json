@@ -11,7 +11,8 @@
     "entity.mob.CreeperEntityMixin",
     "entity.mob.GiantEntityMixin",
     "entity.mob.PhantomEntityMixin",
-    "server.PlayerManagerMixin",
+    "entity.player.PlayerEntityMixin",
+    "network.ServerPlayNetworkHandlerMixin",
     "world.ServerWorldMixin",
     "world.spawner.PhantomSpawnerMixin"
   ],
