@@ -7,7 +7,4 @@ public interface Event {
 
     ActionResult execute(PlayerEntity recipient);
 
-    default void notify(PlayerEntity recipient) {
-    }
-
 }

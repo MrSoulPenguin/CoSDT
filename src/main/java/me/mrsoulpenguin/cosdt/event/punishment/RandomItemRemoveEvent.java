@@ -29,15 +29,11 @@ public class RandomItemRemoveEvent implements Event {
 
         if (optItemStack.isPresent()) {
             optItemStack.get().setCount(0);
+            recipient.sendMessage(Text.of("Something seems to be missing."));
             return ActionResult.SUCCESS;
         }
 
         return ActionResult.FAIL;
-    }
-
-    @Override
-    public void notify(PlayerEntity player) {
-        player.sendMessage(Text.of("Something seems to be missing."));
     }
 
 }

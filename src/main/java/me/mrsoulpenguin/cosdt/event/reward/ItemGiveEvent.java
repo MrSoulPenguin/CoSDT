@@ -18,11 +18,7 @@ public class ItemGiveEvent implements Event {
     @Override
     public ActionResult execute(PlayerEntity recipient) {
         recipient.getInventory().offer(this.itemStack, true);
+        recipient.sendMessage(((MutableText) Text.of("Obtained ")).append(this.itemStack.getName()).append(Text.of(" x" + this.itemStack.getCount())));
         return ActionResult.SUCCESS;
-    }
-
-    @Override
-    public void notify(PlayerEntity player) {
-        player.sendMessage(((MutableText) Text.of("Obtained ")).append(this.itemStack.getName()).append(Text.of(" x" + this.itemStack.getCount())));
     }
 }
