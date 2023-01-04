@@ -5,12 +5,13 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "block.BlockMixin",
+    "entity.ItemEntityMixin",
     "entity.ZombieEntityMixin",
     "entity.ai.CreeperIgniteGoalMixin",
     "entity.mob.CreeperEntityMixin",
     "entity.mob.GiantEntityMixin",
     "entity.mob.PhantomEntityMixin",
-    "entity.player.PlayerEntityMixin",
+    "server.PlayerManagerMixin",
     "world.ServerWorldMixin",
     "world.spawner.PhantomSpawnerMixin"
   ],
