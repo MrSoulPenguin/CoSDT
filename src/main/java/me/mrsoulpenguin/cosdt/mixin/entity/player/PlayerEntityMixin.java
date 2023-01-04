@@ -3,6 +3,7 @@ package me.mrsoulpenguin.cosdt.mixin.entity.player;
 import com.mojang.datafixers.util.Either;
 import me.mrsoulpenguin.cosdt.challenge.AbstractChallenge;
 import me.mrsoulpenguin.cosdt.challenge.ChallengeHolder;
+import me.mrsoulpenguin.cosdt.challenge.TickingChallenge;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -72,6 +73,15 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Challeng
         if (this.cantSleep && this.world.isDay()) {
             this.cantSleep = false;
         }
+    }
+
+    @Inject(method = "tick", at = @At("TAIL"))
+    private void tickChallenges(CallbackInfo ci) {
+        this.activeChallenges.forEach(challenge -> {
+            if (challenge instanceof TickingChallenge tickingChallenge) {
+                tickingChallenge.tick();
+            }
+        });
     }
 
     @Inject(method = "trySleep", at = @At("HEAD"), cancellable = true)
