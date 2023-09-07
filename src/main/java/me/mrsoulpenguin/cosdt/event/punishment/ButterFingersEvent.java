@@ -19,7 +19,7 @@ public class ButterFingersEvent implements Event {
             mainStack.setCount(0);
             itemEntity.setInvulnerable(true);
             itemEntity.setNeverDespawn();
-            itemEntity.setPickupDelay(6000);
+            itemEntity.setPickupDelayInfinite();
         }
 
         return ActionResult.SUCCESS;
