@@ -51,12 +51,10 @@ public abstract class AbstractChallenge {
 
     protected void onSuccess(PlayerEntity participant) {
         this.rewardEvent.execute(participant);
-        this.remove();
     }
 
     protected void onFailure(PlayerEntity participant) {
         this.punishmentEvent.execute(participant);
-        this.remove();
     }
 
     private void remove() {
