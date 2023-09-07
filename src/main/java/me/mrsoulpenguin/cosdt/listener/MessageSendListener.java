@@ -20,10 +20,12 @@ public class MessageSendListener {
                 AbstractChallenge challenge = challengeIterator.next();
                 if (challenge.getGoal().test(message)) {
                     challenge.stop(ActionResult.SUCCESS);
+                } else {
+                    challenge.stop(ActionResult.FAIL);
                 }
             }
 
-            return ActionResult.SUCCESS;
+            return ActionResult.PASS;
         });
     }
 
