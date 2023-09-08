@@ -1,6 +1,6 @@
 package me.mrsoulpenguin.cosdt.challenge;
 
-import me.mrsoulpenguin.cosdt.challenge.goal.AbstractGoal;
+import me.mrsoulpenguin.cosdt.challenge.goal.Goal;
 import me.mrsoulpenguin.cosdt.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
 
@@ -9,7 +9,7 @@ public class TimedChallenge extends AbstractChallenge implements TickingChalleng
     private final long timeToCompleteMillis;
     private long startTime;
 
-    public TimedChallenge(PlayerEntity participant, AbstractGoal goal, long timeToCompleteMillis, Event rewardEvent, Event punishmentEvent) {
+    public TimedChallenge(PlayerEntity participant, Goal goal, long timeToCompleteMillis, Event rewardEvent, Event punishmentEvent) {
         super(participant, goal, rewardEvent, punishmentEvent);
 
         this.timeToCompleteMillis = timeToCompleteMillis;
