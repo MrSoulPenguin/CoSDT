@@ -2,7 +2,7 @@ package me.mrsoulpenguin.cosdt.challenge.goal;
 
 import net.minecraft.item.Item;
 
-public class PickupItemGoal extends Goal {
+public class PickupItemGoal implements Goal {
 
     private final Item item;
 

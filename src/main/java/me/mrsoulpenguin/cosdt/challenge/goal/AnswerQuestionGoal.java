@@ -1,6 +1,6 @@
 package me.mrsoulpenguin.cosdt.challenge.goal;
 
-public class AnswerQuestionGoal extends AbstractGoal {
+public class AnswerQuestionGoal implements Goal {
 
     private final String answer;
 
