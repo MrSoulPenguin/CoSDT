@@ -5,12 +5,11 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
 
 public class ButterFingersEvent implements Event {
 
     @Override
-    public ActionResult execute(PlayerEntity recipient) {
+    public void execute(PlayerEntity recipient) {
         PlayerInventory inventory = recipient.getInventory();
         ItemStack mainStack = inventory.getMainHandStack();
 
@@ -22,7 +21,6 @@ public class ButterFingersEvent implements Event {
             itemEntity.setPickupDelayInfinite();
         }
 
-        return ActionResult.SUCCESS;
     }
 
 }

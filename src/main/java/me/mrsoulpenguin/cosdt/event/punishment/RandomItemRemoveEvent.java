@@ -5,7 +5,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +14,7 @@ import java.util.Optional;
 public class RandomItemRemoveEvent implements Event {
 
     @Override
-    public ActionResult execute(PlayerEntity recipient) {
+    public void execute(PlayerEntity recipient) {
         PlayerInventory inventory = recipient.getInventory();
         List<ItemStack> itemStacks = new ArrayList<>();
         itemStacks.addAll(inventory.main);
@@ -30,10 +29,8 @@ public class RandomItemRemoveEvent implements Event {
         if (optItemStack.isPresent()) {
             optItemStack.get().setCount(0);
             recipient.sendMessage(Text.of("Something seems to be missing."));
-            return ActionResult.SUCCESS;
         }
 
-        return ActionResult.FAIL;
     }
 
 }
