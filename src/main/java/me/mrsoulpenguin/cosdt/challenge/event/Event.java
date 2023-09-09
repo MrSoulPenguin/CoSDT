@@ -6,4 +6,6 @@ public interface Event {
 
     void execute(PlayerEntity recipient);
 
+    void undo(PlayerEntity recipient);
+
 }
