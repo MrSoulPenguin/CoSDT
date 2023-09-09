@@ -23,8 +23,7 @@ public class AnswerQuestionGoal implements Goal {
     @Override
     public boolean test(Object object) {
         if (object instanceof String response) {
-            // I don't know why. But for some reason, this gets flipped at some point. So it's gotta be flipped back.
-            return !response.equals(this.answer);
+            return response.equals(this.answer);
         }
 
         return false;
