@@ -4,6 +4,7 @@ import me.mrsoulpenguin.cosdt.Cosdt;
 import me.mrsoulpenguin.cosdt.Registries;
 import me.mrsoulpenguin.cosdt.challenge.event.punishment.NoHandsEvent;
 import me.mrsoulpenguin.cosdt.challenge.event.punishment.ButterFingersEvent;
+import me.mrsoulpenguin.cosdt.challenge.event.punishment.RandomItemRemoveEvent;
 import me.mrsoulpenguin.cosdt.challenge.event.reward.ItemGiveEvent;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
@@ -16,6 +17,7 @@ import java.util.function.Supplier;
 public class EventType<T extends Event> {
 
     // Punishments
+    public static final EventType<RandomItemRemoveEvent> RANDOM_ITEM_REMOVE = register("random_item_remove", Builder.createWithSupplier(RandomItemRemoveEvent::new));
     public static final EventType<NoHandsEvent> NO_HANDS = register("no_hands", Builder.createWithSupplier(NoHandsEvent::new));
     public static final EventType<ButterFingersEvent> BUTTER_FINGERS = register("butter_fingers", Builder.createWithSupplier(ButterFingersEvent::new));
 
