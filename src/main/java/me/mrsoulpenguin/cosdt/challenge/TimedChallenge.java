@@ -2,6 +2,7 @@ package me.mrsoulpenguin.cosdt.challenge;
 
 import me.mrsoulpenguin.cosdt.challenge.goal.Goal;
 import me.mrsoulpenguin.cosdt.challenge.event.Event;
+import net.minecraft.util.ActionResult;
 
 public class TimedChallenge extends AbstractChallenge implements TickingChallenge {
 
@@ -21,7 +22,7 @@ public class TimedChallenge extends AbstractChallenge implements TickingChalleng
 
     public void tick() {
         if (System.currentTimeMillis() - this.startTime >= this.timeToCompleteMillis) {
-            this.onFailure(this.getParticipant());
+            super.stop(ActionResult.FAIL);
         }
     }
 }
