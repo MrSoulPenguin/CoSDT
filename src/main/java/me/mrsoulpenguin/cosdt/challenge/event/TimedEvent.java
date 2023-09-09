@@ -1,5 +1,6 @@
 package me.mrsoulpenguin.cosdt.challenge.event;
 
+import me.mrsoulpenguin.cosdt.challenge.Participant;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 
@@ -11,7 +12,7 @@ public class TimedEvent implements Event, TickingEvent {
     private long startTime;
 
     public TimedEvent(NbtCompound nbt) {
-        EventType.getEventFromNbt(nbt).ifPresent(event -> this.internalEvent = event);
+        EventType.getEventFromNbt(nbt.getCompound("event")).ifPresent(event -> this.internalEvent = event);
         this.runtime = nbt.getLong("runtime");
     }
 
@@ -22,6 +23,8 @@ public class TimedEvent implements Event, TickingEvent {
         }
 
         this.recipient = recipient;
+        ((Participant) recipient).addTickingEvent(this);
+
         this.startTime = System.currentTimeMillis();
         this.internalEvent.execute(recipient);
     }
@@ -29,6 +32,7 @@ public class TimedEvent implements Event, TickingEvent {
     @Override
     public void undo(PlayerEntity recipient) {
         this.internalEvent.undo(recipient);
+        ((Participant) recipient).removeTickingEvent(this);
     }
 
     @Override
