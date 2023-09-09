@@ -29,29 +29,9 @@ public class ChallengeCommand {
     }
 
     private int execute(CommandContext<ServerCommandSource> context, PlayerEntity participant, NbtCompound nbtCompound) {
-        /*  Challenge NBT example:
-            {
-                challenge: {
-                    timed: 1b,
-                    time_limit: 60,
-                    goal: {
-                        id: "cosdt:answer_question",
-                        question: "What is 2 + 2?",
-                        answer: "4"
-                    },
-                    punishment: {
-                        id: "cosdt:no_hands"
-                    },
-                    reward: {
-                        id: "cosdt:give_item",
-                          item: {
-                            id: "minecraft:diamond",
-                            Count: 1
-                        }
-                    }
-                }
-            }
-        */
+        // Challenge NBT example:
+        // {challenge:{timed:1b,time_limit:6000,goal:{id:"cosdt:answer_question",question:"What is 2 + 2?",answer:"4"},punishment:{id:"cosdt:no_hands"},reward:{id:"cosdt:item_give",item:{id:"minecraft:diamond",Count:1}}}}
+
         AbstractChallenge challenge = ChallengeFactory.fromNbt(nbtCompound.getCompound("challenge"));
         challenge.setParticipant(participant);
         challenge.start();
