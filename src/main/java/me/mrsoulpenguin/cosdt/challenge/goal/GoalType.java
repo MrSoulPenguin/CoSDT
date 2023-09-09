@@ -12,6 +12,7 @@ import java.util.Optional;
 public class GoalType<T extends Goal> {
 
     public static final GoalType<AnswerQuestionGoal> ANSWER_QUESTION = register("answer_question", Builder.create(AnswerQuestionGoal::new));
+    public static final GoalType<PickupItemGoal> PICKUP_ITEM = register("pickup_item", Builder.create(PickupItemGoal::new));
 
     private final GoalFactory<T> factory;
 
