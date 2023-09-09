@@ -2,7 +2,7 @@ package me.mrsoulpenguin.cosdt.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import me.mrsoulpenguin.cosdt.challenge.AbstractChallenge;
+import me.mrsoulpenguin.cosdt.challenge.Challenge;
 import me.mrsoulpenguin.cosdt.challenge.ChallengeFactory;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.command.argument.NbtCompoundArgumentType;
@@ -32,7 +32,7 @@ public class ChallengeCommand {
         // Challenge NBT example:
         // {challenge:{timed:1b,time_limit:6000,goal:{id:"cosdt:answer_question",question:"What is 2 + 2?",answer:"4"},punishment:{id:"cosdt:no_hands"},reward:{id:"cosdt:item_give",item:{id:"minecraft:diamond",Count:1}}}}
 
-        AbstractChallenge challenge = ChallengeFactory.fromNbt(nbtCompound.getCompound("challenge"));
+        Challenge challenge = ChallengeFactory.fromNbt(nbtCompound.getCompound("challenge"));
         challenge.setParticipant(participant);
         challenge.start();
         return 1;

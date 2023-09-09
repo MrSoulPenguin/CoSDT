@@ -5,14 +5,14 @@ import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
 
-public abstract class AbstractChallenge {
+public class Challenge {
 
     private PlayerEntity participant;
     private final Goal goal;
     private final Event rewardEvent;
     private final Event punishmentEvent;
 
-    public AbstractChallenge(Goal goal, Event rewardEvent, Event punishmentEvent) {
+    public Challenge(Goal goal, Event rewardEvent, Event punishmentEvent) {
         this.goal = goal;
         this.rewardEvent = rewardEvent;
         this.punishmentEvent = punishmentEvent;
@@ -31,7 +31,9 @@ public abstract class AbstractChallenge {
         ((ChallengeHolder) participant).addChallenge(this);
     }
 
-    public abstract void start();
+    public void start() {
+        this.goal.notifyParticipant(this.participant);
+    };
 
     /**
      * Executes AbstractChallenge#onSuccess() or AbstractChallenge#onFailure() depending on if the result is
@@ -40,8 +42,8 @@ public abstract class AbstractChallenge {
      * <p>Any other result doesn't to anything.
      *
      * @param result Result of the challenge.
-     * @see AbstractChallenge#onSuccess(PlayerEntity participant)
-     * @see AbstractChallenge#onFailure(PlayerEntity participant)
+     * @see Challenge#onSuccess(PlayerEntity participant)
+     * @see Challenge#onFailure(PlayerEntity participant)
      * @see ActionResult
      */
     public void stop(ActionResult result) {

@@ -1,7 +1,7 @@
 package me.mrsoulpenguin.cosdt.mixin.entity.player;
 
 import com.mojang.datafixers.util.Either;
-import me.mrsoulpenguin.cosdt.challenge.AbstractChallenge;
+import me.mrsoulpenguin.cosdt.challenge.Challenge;
 import me.mrsoulpenguin.cosdt.challenge.ChallengeHolder;
 import me.mrsoulpenguin.cosdt.challenge.TickingChallenge;
 import net.minecraft.entity.EntityType;
@@ -28,7 +28,7 @@ import java.util.Set;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements ChallengeHolder {
 
-    private final Set<AbstractChallenge> activeChallenges = new HashSet<>();
+    private final Set<Challenge> activeChallenges = new HashSet<>();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -95,17 +95,17 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Challeng
     }
 
     @Override
-    public void addChallenge(AbstractChallenge challenge) {
+    public void addChallenge(Challenge challenge) {
         this.activeChallenges.add(challenge);
     }
 
     @Override
-    public void removeChallenge(AbstractChallenge challenge) {
+    public void removeChallenge(Challenge challenge) {
         this.activeChallenges.remove(challenge);
     }
 
     @Override
-    public Set<AbstractChallenge> getActiveChallenges() {
+    public Set<Challenge> getActiveChallenges() {
         return this.activeChallenges;
     }
 

@@ -1,6 +1,8 @@
 package me.mrsoulpenguin.cosdt.challenge.goal;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.text.Text;
 
 public class AnswerQuestionGoal implements Goal {
 
@@ -16,8 +18,9 @@ public class AnswerQuestionGoal implements Goal {
         this(nbt.getString("question"), nbt.getString("answer"));
     }
 
-    public String getQuestion() {
-        return question;
+    @Override
+    public void notifyParticipant(PlayerEntity participant) {
+        participant.sendMessage(Text.of(this.question));
     }
 
     @Override

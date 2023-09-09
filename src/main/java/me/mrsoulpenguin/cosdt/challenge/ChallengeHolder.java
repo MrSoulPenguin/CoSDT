@@ -4,10 +4,10 @@ import java.util.Set;
 
 public interface ChallengeHolder {
 
-    void addChallenge(AbstractChallenge challenge);
+    void addChallenge(Challenge challenge);
 
-    void removeChallenge(AbstractChallenge challenge);
+    void removeChallenge(Challenge challenge);
 
-    Set<AbstractChallenge> getActiveChallenges();
+    Set<Challenge> getActiveChallenges();
 
 }

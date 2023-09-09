@@ -15,8 +15,8 @@ import java.util.Optional;
 
 public class ChallengeFactory {
 
-    public static AbstractChallenge fromNbt(NbtCompound nbt) {
-        AbstractChallenge challenge;
+    public static Challenge fromNbt(NbtCompound nbt) {
+        Challenge challenge;
 
         Optional<Goal> goal = GoalType.getGoalFromNbt(nbt.getCompound("goal"));
         Optional<Event> punishment = EventType.getEventFromNbt(nbt.getCompound("punishment"));
@@ -29,7 +29,7 @@ public class ChallengeFactory {
                 challenge = new QuestionChallenge((AnswerQuestionGoal) goal.get(), reward.get(), punishment.get());
             }
         } else {
-            challenge = new AbstractChallenge(null, null, null) {
+            challenge = new Challenge(null, null, null) {
                 @Override
                 public void start() {
                     PlayerEntity playerEntity = this.getParticipant();
