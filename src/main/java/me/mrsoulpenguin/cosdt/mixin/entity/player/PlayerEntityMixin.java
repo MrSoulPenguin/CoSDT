@@ -4,7 +4,7 @@ import com.mojang.datafixers.util.Either;
 import me.mrsoulpenguin.cosdt.challenge.Challenge;
 import me.mrsoulpenguin.cosdt.challenge.Participant;
 import me.mrsoulpenguin.cosdt.challenge.TickingChallenge;
-import me.mrsoulpenguin.cosdt.challenge.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.TickingEvent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -30,7 +30,7 @@ import java.util.Set;
 public abstract class PlayerEntityMixin extends LivingEntity implements Participant {
 
     private final Set<Challenge> activeChallenges = new HashSet<>();
-    private final Set<Event> activePunishments = new HashSet<>();
+    private final Set<TickingEvent> activeTickingEvents = new HashSet<>();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -84,6 +84,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Particip
                 tickingChallenge.tick();
             }
         });
+
+        this.activeTickingEvents.forEach(TickingEvent::tick);
     }
 
     @Inject(method = "trySleep", at = @At("HEAD"), cancellable = true)
@@ -102,8 +104,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Particip
     }
 
     @Override
-    public void addPunishment(Event punishment) {
-        this.activePunishments.add(punishment);
+    public void addTickingEvent(TickingEvent event) {
+        this.activeTickingEvents.add(event);
     }
 
     @Override
@@ -112,8 +114,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Particip
     }
 
     @Override
-    public void removePunishment(Event punishment) {
-        this.activePunishments.remove(punishment);
+    public void removeTickingEvent(TickingEvent event) {
+        this.activeTickingEvents.remove(event);
     }
 
     @Override
@@ -122,8 +124,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Particip
     }
 
     @Override
-    public Set<Event> getActivePunishments() {
-        return this.activePunishments;
+    public Set<TickingEvent> getActiveTickingEvents() {
+        return this.activeTickingEvents;
     }
 
 }
