@@ -13,4 +13,10 @@ public class NoHandsEvent implements Event {
         gameRenderer.setRenderHand(false);
     }
 
+    @Override
+    public void undo(PlayerEntity recipient) {
+        GameRenderer gameRenderer = MinecraftClient.getInstance().gameRenderer;
+        gameRenderer.setRenderHand(true);
+    }
+
 }

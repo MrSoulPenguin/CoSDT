@@ -23,4 +23,9 @@ public class ButterFingersEvent implements Event {
 
     }
 
+    @Override
+    public void undo(PlayerEntity recipient) {
+        // Nothing to undo
+    }
+
 }

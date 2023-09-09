@@ -24,4 +24,11 @@ public class ItemGiveEvent implements Event {
         recipient.getInventory().offer(this.itemStack, true);
         recipient.sendMessage(((MutableText) Text.of("Obtained ")).append(itemName).append(Text.of(" x" + itemAmount)));
     }
+
+    @Override
+    public void undo(PlayerEntity recipient) {
+        // Nothing to undo
+    }
+
+
 }

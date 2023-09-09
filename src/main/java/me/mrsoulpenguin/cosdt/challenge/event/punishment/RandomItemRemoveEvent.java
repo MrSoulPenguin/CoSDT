@@ -33,4 +33,9 @@ public class RandomItemRemoveEvent implements Event {
 
     }
 
+    @Override
+    public void undo(PlayerEntity recipient) {
+        // Nothing to undo
+    }
+
 }
