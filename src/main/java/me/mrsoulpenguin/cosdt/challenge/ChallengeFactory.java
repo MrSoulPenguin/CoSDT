@@ -26,7 +26,7 @@ public class ChallengeFactory {
             if (nbt.contains("timed") && nbt.getBoolean("timed")) {
                 challenge = new TimedChallenge(goal.get(), nbt.getLong("time_limit"), reward.get(), punishment.get());
             } else {
-                challenge = new QuestionChallenge((AnswerQuestionGoal) goal.get(), reward.get(), punishment.get());
+                challenge = new Challenge(goal.get(), reward.get(), punishment.get());
             }
         } else {
             challenge = new Challenge(null, null, null) {
