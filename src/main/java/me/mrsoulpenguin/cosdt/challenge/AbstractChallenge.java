@@ -3,17 +3,17 @@ package me.mrsoulpenguin.cosdt.challenge;
 import me.mrsoulpenguin.cosdt.challenge.goal.Goal;
 import me.mrsoulpenguin.cosdt.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 
 public abstract class AbstractChallenge {
 
-    private final PlayerEntity participant;
+    private PlayerEntity participant;
     private final Goal goal;
     private final Event rewardEvent;
     private final Event punishmentEvent;
 
-    public AbstractChallenge(PlayerEntity participant, Goal goal, Event rewardEvent, Event punishmentEvent) {
-        this.participant = participant;
+    public AbstractChallenge(Goal goal, Event rewardEvent, Event punishmentEvent) {
         this.goal = goal;
         this.rewardEvent = rewardEvent;
         this.punishmentEvent = punishmentEvent;
@@ -25,6 +25,11 @@ public abstract class AbstractChallenge {
 
     public Goal getGoal() {
         return goal;
+    }
+
+    public void setParticipant(PlayerEntity participant) {
+        this.participant = participant;
+        ((ChallengeHolder) participant).addChallenge(this);
     }
 
     public abstract void start();
