@@ -2,8 +2,9 @@ package me.mrsoulpenguin.cosdt.mixin.entity.player;
 
 import com.mojang.datafixers.util.Either;
 import me.mrsoulpenguin.cosdt.challenge.Challenge;
-import me.mrsoulpenguin.cosdt.challenge.ChallengeHolder;
+import me.mrsoulpenguin.cosdt.challenge.Participant;
 import me.mrsoulpenguin.cosdt.challenge.TickingChallenge;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -26,9 +27,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity implements ChallengeHolder {
+public abstract class PlayerEntityMixin extends LivingEntity implements Participant {
 
     private final Set<Challenge> activeChallenges = new HashSet<>();
+    private final Set<Event> activePunishments = new HashSet<>();
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -76,7 +78,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Challeng
     }
 
     @Inject(method = "tick", at = @At("TAIL"))
-    private void tickChallenges(CallbackInfo ci) {
+    private void tickChallengesAndEvents(CallbackInfo ci) {
         this.activeChallenges.forEach(challenge -> {
             if (challenge instanceof TickingChallenge tickingChallenge) {
                 tickingChallenge.tick();
@@ -100,13 +102,28 @@ public abstract class PlayerEntityMixin extends LivingEntity implements Challeng
     }
 
     @Override
+    public void addPunishment(Event punishment) {
+        this.activePunishments.add(punishment);
+    }
+
+    @Override
     public void removeChallenge(Challenge challenge) {
         this.activeChallenges.remove(challenge);
     }
 
     @Override
+    public void removePunishment(Event punishment) {
+        this.activePunishments.remove(punishment);
+    }
+
+    @Override
     public Set<Challenge> getActiveChallenges() {
         return this.activeChallenges;
+    }
+
+    @Override
+    public Set<Event> getActivePunishments() {
+        return this.activePunishments;
     }
 
 }

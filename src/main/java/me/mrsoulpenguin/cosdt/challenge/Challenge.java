@@ -28,7 +28,7 @@ public class Challenge {
 
     public void setParticipant(PlayerEntity participant) {
         this.participant = participant;
-        ((ChallengeHolder) participant).addChallenge(this);
+        ((Participant) participant).addChallenge(this);
     }
 
     public void start() {
@@ -64,7 +64,7 @@ public class Challenge {
     }
 
     private void remove() {
-        ((ChallengeHolder) this.participant).removeChallenge(this);
+        ((Participant) this.participant).removeChallenge(this);
     }
 
 }
