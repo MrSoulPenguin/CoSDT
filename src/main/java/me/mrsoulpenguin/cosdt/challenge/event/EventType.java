@@ -16,6 +16,8 @@ import java.util.function.Supplier;
 @SuppressWarnings("unused")
 public class EventType<T extends Event> {
 
+    public static final EventType<TimedEvent> TIMED_EVENT = register("timed_event", Builder.createWithFactory(TimedEvent::new));
+
     // Punishments
     public static final EventType<RandomItemRemoveEvent> RANDOM_ITEM_REMOVE = register("random_item_remove", Builder.createWithSupplier(RandomItemRemoveEvent::new));
     public static final EventType<NoHandsEvent> NO_HANDS = register("no_hands", Builder.createWithSupplier(NoHandsEvent::new));
