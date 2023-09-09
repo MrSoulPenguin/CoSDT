@@ -1,10 +1,10 @@
-package me.mrsoulpenguin.cosdt.event;
+package me.mrsoulpenguin.cosdt.challenge.event;
 
 import me.mrsoulpenguin.cosdt.Cosdt;
 import me.mrsoulpenguin.cosdt.Registries;
-import me.mrsoulpenguin.cosdt.event.punishment.ButterFingersEvent;
-import me.mrsoulpenguin.cosdt.event.punishment.NoHandsEvent;
-import me.mrsoulpenguin.cosdt.event.reward.ItemGiveEvent;
+import me.mrsoulpenguin.cosdt.challenge.event.punishment.NoHandsEvent;
+import me.mrsoulpenguin.cosdt.challenge.event.punishment.ButterFingersEvent;
+import me.mrsoulpenguin.cosdt.challenge.event.reward.ItemGiveEvent;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

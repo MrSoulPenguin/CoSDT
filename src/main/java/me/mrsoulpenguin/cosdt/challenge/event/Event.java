@@ -1,4 +1,4 @@
-package me.mrsoulpenguin.cosdt.event;
+package me.mrsoulpenguin.cosdt.challenge.event;
 
 import net.minecraft.entity.player.PlayerEntity;
 

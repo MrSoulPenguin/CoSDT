@@ -1,6 +1,6 @@
-package me.mrsoulpenguin.cosdt.event.punishment;
+package me.mrsoulpenguin.cosdt.challenge.event.punishment;
 
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerEntity;

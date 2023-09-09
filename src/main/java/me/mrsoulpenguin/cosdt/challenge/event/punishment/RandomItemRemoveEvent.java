@@ -1,6 +1,6 @@
-package me.mrsoulpenguin.cosdt.event.punishment;
+package me.mrsoulpenguin.cosdt.challenge.event.punishment;
 
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;

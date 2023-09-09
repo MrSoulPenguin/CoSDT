@@ -1,6 +1,6 @@
-package me.mrsoulpenguin.cosdt.event.reward;
+package me.mrsoulpenguin.cosdt.challenge.event.reward;
 
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;

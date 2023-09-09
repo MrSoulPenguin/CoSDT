@@ -1,9 +1,8 @@
 package me.mrsoulpenguin.cosdt.challenge;
 
 import me.mrsoulpenguin.cosdt.challenge.goal.Goal;
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 
 public abstract class AbstractChallenge {

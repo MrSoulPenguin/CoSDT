@@ -1,7 +1,7 @@
 package me.mrsoulpenguin.cosdt.challenge;
 
 import me.mrsoulpenguin.cosdt.challenge.goal.Goal;
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 
 public class TimedChallenge extends AbstractChallenge implements TickingChallenge {
 

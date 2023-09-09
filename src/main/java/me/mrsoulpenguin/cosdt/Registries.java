@@ -2,7 +2,7 @@ package me.mrsoulpenguin.cosdt;
 
 import com.mojang.serialization.Lifecycle;
 import me.mrsoulpenguin.cosdt.challenge.goal.GoalType;
-import me.mrsoulpenguin.cosdt.event.EventType;
+import me.mrsoulpenguin.cosdt.challenge.event.EventType;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

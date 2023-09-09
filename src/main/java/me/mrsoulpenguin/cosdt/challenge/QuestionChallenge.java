@@ -1,7 +1,7 @@
 package me.mrsoulpenguin.cosdt.challenge;
 
 import me.mrsoulpenguin.cosdt.challenge.goal.AnswerQuestionGoal;
-import me.mrsoulpenguin.cosdt.event.Event;
+import me.mrsoulpenguin.cosdt.challenge.event.Event;
 import net.minecraft.text.Text;
 
 public class QuestionChallenge extends AbstractChallenge {
